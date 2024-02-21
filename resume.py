@@ -9,13 +9,15 @@ def generate_pdf(name, email, phone, address, about_me, website_url_linkedin, we
     
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=12)
+    pdf.set_font("Arial", "B", size=12)
 
-    pdf.cell(200, 10, txt="Position: Data Analyst", ln=True, align="C")
-    pdf.ln(10)
-    
+    pdf.set_draw_color(0, 0, 0)  # Border color (black)
+    pdf.set_line_width(0.5)       # Border width (0.5 mm)
+
+    # Personal Information
+    pdf.set_font("Arial", "B", size=10)
     pdf.cell(200, 10, txt="Personal Information", ln=True, align="L")
-    pdf.ln(5)
+    pdf.set_font("Arial", size=10)
     pdf.cell(200, 10, txt=f"Name: {name}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Email: {email}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Phone: {phone}", ln=True, align="L")
@@ -23,42 +25,54 @@ def generate_pdf(name, email, phone, address, about_me, website_url_linkedin, we
     pdf.cell(200, 10, txt=f"About Me: {about_me}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"LinkedIn: {website_url_linkedin}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"GitHub: {website_url_github}", ln=True, align="L")
-    pdf.ln(10)
-    
-    pdf.cell(200, 10, txt="Education", ln=True, align="L")
     pdf.ln(5)
+
+    # Education
+    pdf.set_font("Arial", "B", size=10)
+    pdf.cell(200, 10, txt="Education", ln=True, align="L")
+    pdf.set_font("Arial", size=10)
     pdf.cell(200, 10, txt=f"12th Grade: {education_12th_grade}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Graduation: {education_graduation}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Post Graduation: {education_post_graduation}", ln=True, align="L")
-    pdf.ln(10)
-    
-    pdf.cell(200, 10, txt="Skills", ln=True, align="L")
     pdf.ln(5)
+
+    # Skills
+    pdf.set_font("Arial", "B", size=10)
+    pdf.cell(200, 10, txt="Skills", ln=True, align="L")
+    pdf.set_font("Arial", size=10)
     pdf.cell(200, 10, txt=f"Technical Skills: {technical_skills}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Personal Skills: {personal_skills}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Software Skills: {software_skills}", ln=True, align="L")
-    pdf.ln(10)
-    
-    pdf.cell(200, 10, txt="Certificates", ln=True, align="L")
     pdf.ln(5)
+
+    # Certificates
+    pdf.set_font("Arial", "B", size=10)
+    pdf.cell(200, 10, txt="Certificates", ln=True, align="L")
+    pdf.set_font("Arial", size=10)
     pdf.cell(200, 10, txt=f"Name of Course/Competition 1: {certificate_1}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Name of Course/Competition 2: {certificate_2}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"Name of Course/Competition 3: {certificate_3}", ln=True, align="L")
-    pdf.ln(10)
-    
+    pdf.ln(5)
+
+    # Hobbies
+    pdf.set_font("Arial", "B", size=10)
     pdf.cell(200, 10, txt="Hobbies", ln=True, align="L")
-    pdf.ln(5)
+    pdf.set_font("Arial", size=10)
     pdf.cell(200, 10, txt=f"My Hobbies are: {hobbies}", ln=True, align="L")
-    pdf.ln(10)
-    
-    pdf.cell(200, 10, txt="Work Experience", ln=True, align="L")
     pdf.ln(5)
+
+    # Work Experience
+    pdf.set_font("Arial", "B", size=10)
+    pdf.cell(200, 10, txt="Work Experience", ln=True, align="L")
+    pdf.set_font("Arial", size=10)
     pdf.cell(200, 10, txt=f"What was role and objectives for work experience 1: {work_1}", ln=True, align="L")
     pdf.cell(200, 10, txt=f"What was role and objectives for work experience 2: {work_2}", ln=True, align="L")
-    pdf.ln(10)
-    
-    pdf.cell(200, 10, txt="Projects", ln=True, align="L")
     pdf.ln(5)
+
+    # Projects
+    pdf.set_font("Arial", "B", size=10)
+    pdf.cell(200, 10, txt="Projects", ln=True, align="L")
+    pdf.set_font("Arial", size=10)
     pdf.cell(200, 10, txt=f"{project_title}: {project_description}", ln=True, align="L")
 
     return pdf.output(dest="S").encode("latin1")
