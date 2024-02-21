@@ -9,10 +9,10 @@ def generate_pdf(name, email, phone, address, about_me, website_url_linkedin, we
     
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Garamond", size=12)
+    pdf.set_font("Arial", size=12)
 
-    #pdf.cell(200, 10, txt="Resume", ln=True, align="C")
-    #pdf.ln(10)
+    pdf.cell(200, 10, txt="Position: Data Analyst", ln=True, align="C")
+    pdf.ln(10)
     
     pdf.cell(200, 10, txt="Personal Information", ln=True, align="L")
     pdf.ln(5)
